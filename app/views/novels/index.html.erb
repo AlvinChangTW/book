@@ -1,7 +1,9 @@
 <h2>小說清單</h2>
 <ul>
 <%@novels.each do |n|%>
-  <li>小說名稱：<%=n.name%></li>
+  <li>小說名稱：<%=n.name%>
+      <%= link_to "顯示內容", novel_path(n) %>
+  </li>
 <%end%>
 </ul>
 <%=link_to "新增小說", new_novel_path%>

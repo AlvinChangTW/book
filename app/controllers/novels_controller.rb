@@ -10,7 +10,9 @@ class NovelsController < ApplicationController
     @novel.save
     redirect_to novels_path
   end
-
+  def show
+    @novel = Novel.find(params[:id])
+  end
 
 
   private
