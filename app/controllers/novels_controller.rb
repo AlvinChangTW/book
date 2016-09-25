@@ -1,6 +1,6 @@
 class NovelsController < ApplicationController
   def index
-    @novels = Novel.all
+    @novels = Novel.page(params[:page]).per(5)
   end
   def new
     @novel = Novel.new
@@ -12,6 +12,7 @@ class NovelsController < ApplicationController
   end
   def show
     @novel = Novel.find(params[:id])
+    @page_title = @novel.name
   end
   def edit
     @novel = Novel.find(params[:id])
