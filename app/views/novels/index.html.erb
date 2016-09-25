@@ -3,6 +3,7 @@
 <%@novels.each do |n|%>
   <li>小說名稱：<%=n.name%>
       <%= link_to "顯示內容", novel_path(n) %>
+      <%= link_to "修改內容", edit_novel_path(n) %>
   </li>
 <%end%>
 </ul>
