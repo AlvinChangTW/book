@@ -13,14 +13,7 @@ class NovelsController < ApplicationController
   def show
     @novel = Novel.find(params[:id])
   end
-  def edit
-    @novel = Novel.find(params[:id])
-  end
-  def update
-    @novel = Novel.find(params[:id])
-    @novel.update(param_novel)
-    redirect_to novels_path
-  end
+
 
   private
   def param_novel
