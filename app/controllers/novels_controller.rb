@@ -8,8 +8,13 @@ class NovelsController < ApplicationController
   end
   def create
     @novel = Novel.new(param_novel)
-    @novel.save
-    redirect_to novels_path
+    if @novel.save
+      flash[:notice] = "新增成功"
+      redirect_to novels_path
+    else
+      flash[:alert] = "新增失敗"
+      render "new"
+    end
   end
   def show
     @page_title = @novel.name
