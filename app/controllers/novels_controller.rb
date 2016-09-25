@@ -21,6 +21,11 @@ class NovelsController < ApplicationController
     @novel.update(param_novel)
     redirect_to novels_path
   end
+  def destroy
+    @novel = Novel.find(params[:id])
+    @novel.destroy
+    redirect_to novels_path
+  end
 
   private
   def param_novel
