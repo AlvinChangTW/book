@@ -22,11 +22,17 @@ class NovelsController < ApplicationController
   def edit
   end
   def update
-    @novel.update(param_novel)
-    redirect_to novels_path
+    if @novel.update(param_novel)
+      flash[:notice] = "修改成功"
+      redirect_to novels_path
+    else
+      flash[:alert] = "修改失敗"
+      render "edit"
+    end
   end
   def destroy
     @novel.destroy
+    flash[:notice] = "刪除成功"
     redirect_to novels_path
   end
 
